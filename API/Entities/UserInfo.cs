@@ -11,5 +11,7 @@ namespace webAPI.Entities
         public string UserName { get; set; }
         public string EmailAdress { get; set; }
         public string PhoneNumber { get; set; }
+        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt { get; set; }
     }
 }
