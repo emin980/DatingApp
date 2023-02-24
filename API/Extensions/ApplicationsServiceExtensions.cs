@@ -8,7 +8,7 @@ using webAPI.Data;
 
 namespace DatingApp.Extensions
 {
-    public static class ApplicationsServiceExtensions
+    public static class ApplicationServiceExtensions
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services,IConfiguration config){
             services.AddDbContext<DataContext>(options=>{
