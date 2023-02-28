@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { User } from 'app/_models/user';
 import { AccountService } from 'app/_services/account.service';
 import { UsersService } from 'app/_services/users.service';
@@ -11,6 +11,7 @@ import { Observable, of } from 'rxjs';
 })
 export class NavBarComponent implements OnInit {
   model:any={}
+  @Output() isChangePassword=new EventEmitter();
 
   constructor(public accountService:AccountService) { }
   ngOnInit(): void {
@@ -28,6 +29,9 @@ export class NavBarComponent implements OnInit {
   }
   logout(){
     this.accountService.logout();
+  }
+  triggerChangePassword(){
+    this.isChangePassword.emit(true);
   }
 
 }

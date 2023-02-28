@@ -9,6 +9,7 @@ import { AccountService } from './_services/account.service';
 })
 export class AppComponent implements OnInit{
   title = 'The Dating App';
+  changePasswordMode: boolean = false;
   users:any;
   constructor(private accountService:AccountService)
   {
@@ -26,5 +27,9 @@ export class AppComponent implements OnInit{
     const user:User=JSON.parse(userString);
     this.accountService.setCurrentUser(user);
 
+  }
+
+  onChangePassword(event :boolean){
+    this.changePasswordMode = event;
   }
 }

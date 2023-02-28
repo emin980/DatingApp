@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AccountService } from 'app/_services/account.service';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   registerMode=false;
+  @Input() changePasswordMode:boolean = false;
   users:any;
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,public accountService:AccountService) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -30,6 +32,10 @@ export class HomeComponent implements OnInit {
 
   cancelRegisterMode(event:boolean){
     this.registerMode=event;
+  }
+
+  cancelChangePasswordMode(event:boolean){
+    this.changePasswordMode=event;
   }
 
 }

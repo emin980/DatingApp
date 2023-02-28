@@ -42,4 +42,16 @@ return this.http.post<User>(this.baseUrl+'account/register',model).pipe(
  setCurrentUser(user:User){
   this.currentUserSource.next(user);
  }
+
+ changePassword(model:any){
+  debugger;
+  return this.http.post<User>(this.baseUrl+'Account/ChangePassword',model).pipe(
+    map(user=>{
+      if(user){
+        localStorage.removeItem('user');
+        this.currentUserSource.next(null);
+      }
+    })
+  )
+ }
 }
